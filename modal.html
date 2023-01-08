@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Dialouge</title>
+
+    <style>
+        html {
+            background-color: #ccc;
+        }
+
+        body {
+            width: 1000px;
+            background-color: white;
+            padding: 20px;
+            margin: 40px auto;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            display: none;
+        }
+
+        #dialog {
+            position: absolute;
+            top: 15%;
+            left: 30%;
+            width: 40%;
+            height: 250px;
+            background-color: wheat;
+            border: 4px solid orangered;
+            font-size: 25px;
+            display: none;
+        }
+
+        #dialog h2 {
+            margin: 0;
+            padding: 8px 15px;
+            font-size: 1em;
+            background-color: orangered;
+            color: white;
+        }
+
+        #dialog h2 a {
+            float: right;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modal Dialog</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate similique nam a vero ut error incidunt blanditiis ipsam sunt. Ab aperiam, placeat quas labore ex accusamus aliquid quisquam repellendus necessitatibus!</p>
+    <button>Button</button>
+
+    <div id="overlay"></div>
+    <div id="dialog">
+        <h2>Dialog Title <a href="#">&times;</a></h2>
+        <h3>Are you sure?</h3>
+        <!-- <button class="btn">Cancel</button>
+        <button class="btn">OK</button> -->
+        </div>
+    </div>
+
+    <script>
+
+        document.querySelector("button").onclick = show;
+        document.querySelector("#overlay").onclick = hide;
+        document.querySelector("#dialog h2 a").onclick = hide;
+        // document.querySelectorAll("#dialog button").onclick = hide;
+
+        function show() {
+            document.querySelector("#overlay").style.display = "block";
+            document.querySelector("#dialog").style.display = "block";
+        }
+
+        function hide() {
+            document.querySelector("#overlay").style.display = "none";
+            document.querySelector("#dialog").style.display = "none";
+        }
+    </script>
+</body>
+</html>

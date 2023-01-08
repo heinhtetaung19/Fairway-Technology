@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+    
+    <!-- Start Main Container -->
+    <div class="container-fluid">
+
+        <div class="row g-0">
+
+            <!-- Start first column -->
+            <div class="col-2 bg-light pe-3">
+                <h1 class="h4 text-center text-primary my-4">
+                    <i class="fas fa-camera"></i>
+                    <span class="ms-2 d-none d-lg-inline">Dashboard</span>
+                </h1>
+
+                <ul class="list-group my-4">
+                    <span class="list-group-item disabled d-none d-lg-block">
+                        <small>CONTROLS</small>
+                    </span>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start active">
+                        <a href="#" class="text-decoration-none text-light">
+                            <i class="fas fa-home"></i>
+                            <span class="ms-2 d-none d-lg-inline">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fas fa-users"></i>
+                            <span class="ms-2 d-none d-lg-inline">Users</span>
+                            <span class="d-none d-lg-inline bg-danger text-light badge rounded-pill float-end">99+</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span class="ms-2 d-none d-lg-inline">Statistics</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fa-solid fa-flag"></i>
+                            <span class="ms-2 d-none d-lg-inline">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="list-group my-4">
+                    <span class="list-group-item disabled">
+                        <small>ACTIONS</small>
+                    </span>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none text-secondary">
+                            <i class="fas fa-user"></i>
+                            <span class="ms-2 d-none d-lg-inline">New User</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none text-secondary">
+                            <i class="fas fa-edit"></i>
+                            <span class="ms-2 d-none d-lg-inline">Update Data</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action text-center text-lg-start">
+                        <a href="#" class="text-decoration-none text-secondary">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span class="ms-2 d-none d-lg-inline">Add Events</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End first column -->
+
+
+            <!-- Start second column -->
+            <div class="col-10 bg-secondary">
+                <nav class="navbar bg-light navbar-expand">
+                    <div class="container-fluid">
+                        <div class="flex-grow"></div>
+                        <ul class="navbar-nav mt-4">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-cog"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-circle"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                                    <a href="#" class="dropdown-item">Profile</a>
+                                    <a href="#" class="dropdown-item">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Start Alert & Stat Blocks -->
+                <div class="p-4">
+                    <div class="alert alert-success mb-4">
+                        A new version of admin dashboard is released. <a href="#">Download now</a>
+                    </div>
+
+                    <div class="row flex-column flex-lg-row">
+                        <h2 class="h6 text-white-50">Quick Stats</h2>
+                        <div class="col mb-4">
+                            <div class="card-body bg-light">
+                                <h3 class="h2 card-title">1,250</h3>
+                                <span class="text-success">
+                                    <i class="fas fa-chart-line"></i>
+                                    Daily Visitors
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card-body bg-light">
+                                <h3 class="h2 card-title">8,210</h3>
+                                <span class="text-success">
+                                    <i class="fas fa-chart-line"></i>
+                                    Weekly Visitors
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card-body bg-light">
+                                <h3 class="h2 card-title">12,560</h3>
+                                <span class="text-success">
+                                    <i class="fas fa-chart-line"></i>
+                                    Monthly Visitors
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card-body bg-light">
+                                <h3 class="h2 card-title">102,250</h3>
+                                <span class="text-success">
+                                    <i class="fas fa-chart-line"></i>
+                                    Yearly Visitors
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <!-- Start Alert & Stat Blocks -->
+
+                <!-- Start Location & Data Blocks -->
+                <div class="p-4">
+                    <div class="row flex-column flex-lg-row">
+                        <div class="col mb-3">
+                            <h2 class="h6 text-white-50">LOCATION</h2>
+
+                            <div class="card" style="height: 280px;">
+                                <div class="card-body">
+                                    <small class="text-muted">Regional</small>
+                                    <div class="progress mt-2 mb-4" style="height: 5px;">
+                                        <div class="progress-bar bg-success w-25"></div>
+                                    </div>
+
+                                    <small class="text-muted">Global</small>
+                                    <div class="progress mt-2 mb-4" style="height: 5px;">
+                                        <div class="progress-bar bg-primary w-75"></div>
+                                    </div>
+
+                                    <small class="text-muted">Local</small>
+                                    <div class="progress mt-2 mb-4" style="height: 5px;">
+                                        <div class="progress-bar bg-warning w-50"></div>
+                                    </div>
+
+                                    <small class="text-muted">Internal</small>
+                                    <div class="progress mt-2 mb-4" style="height: 5px;">
+                                        <div class="progress-bar bg-danger w-25"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col mb-3">
+                            <h2 class="h6 text-white-50">DATA</h2>
+
+                            <div class="card" style="height: 280px;">
+                                <div class="card-body">
+                                    <div class="text-end">
+                                        <button class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-sort-amount-up"></i>
+                                        </button><button class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-filter"></i>
+                                        </button>
+                                    </div>
+
+                                    <table class="table">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Age Group</th>
+                                            <th>Data</th>
+                                            <th>Progress</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>20-30</td>
+                                            <td>19%</td>
+                                            <td><i class="fas fa-chart-pie"></i></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td>30-40</td>
+                                            <td>40%</td>
+                                            <td><i class="fas fa-chart-line"></i></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>3</td>
+                                            <td>40-50</td>
+                                            <td>20%</td>
+                                            <td><i class="fas fa-chart-bar"></i></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>4</td>
+                                            <td>>50</td>
+                                            <td>11%</td>
+                                            <td><i class="fas fa-chart-pie"></i></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Location & Data Blocks -->
+  
+            </div>
+            <!-- End second column -->
+        </div>
+
+        <!-- Start Signup Area -->
+        <div class="d-flex flex-column justify-content-center align-items-center my-4">
+            <div class="border border-dark rounded p-3 mb-2" style="width: 280px;">
+                <i class="fa-brands fa-facebook text-primary me-3"></i>
+                <span>Continue with Facebook</span>
+            </div>
+
+            <div class="border border-dark rounded p-3 mb-2" style="width: 280px;">
+                <i class="fa-brands fa-google text-danger me-3"></i>
+                <span>Continue with Google</span>
+            </div>
+
+            <div class="border border-dark rounded p-3 mb-2" style="width: 280px;">
+                <i class="fa-brands fa-apple me-3"></i>
+                <span>Continue with Apple</span>
+            </div>
+
+            <div>
+                Don't have an account? <a href="#" class="text-dark"> SIGN UP</a>
+            </div>
+        </div>
+        <!-- End Signup Area -->
+
+        <!-- Start Footer -->
+        <footer class="text-center py-4 text-muted">
+            &copy; Copyright 2022
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+    <!-- End Main Container -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

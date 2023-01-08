@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JS</title>
+
+    <style>
+        #box1 {
+            width: 400px;
+            height: 200px;
+            background: red;
+        }
+
+        #box2 {
+            width: 400px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">Box1 Content</div>
+    <div id="box2">Box2 Content</div>
+
+    <script>
+        document.querySelector("#box1").textContent = "New <b>Content</b>";
+        document.querySelector("#box2").innerHTML = "New <b>Content</b>";
+    </script>
+</body>
+</html>

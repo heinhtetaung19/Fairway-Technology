@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do App Customizer</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <style>
+
+        @font-face {
+            font-family: "Familjen_Grotesk";
+            src: url(fonts/Familjen_Grotesk/FamiljenGrotesk-VariableFont_wght.ttf);
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            height: 100vh;
+            background-repeat: no-repeat;
+            font-family: "Familjen_Grotesk", sans-serif;
+        }
+
+        .navbar {
+            background-color: #7431F9;
+        }
+
+        .navbar-brand {
+            text-shadow: 0 8px 15px black;
+        }
+
+        .cursor-none {
+            cursor: pointer;
+        }
+
+        li:nth-child(n+2):hover {
+            background-color: lightgray;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand">To Do App</a>
+        </div>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" id="clear" class="nav-link">Clear</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Input bar -->
+    <div class="container mt-4" style="max-width: 400px;">
+        <div class="input-group mb-4">
+            <input type="text" class="form-control" placeholder="Type your To-Do things">
+            <span class="input-group-text"><a href="#"><i class="fas fa-xmark"></i></a></span>
+            <button class="btn btn-success"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+
+    <!-- Tasks bar -->
+    <ul id="list" class="list-group mb-3 mx-auto" style="max-width: 380px;">
+        <li class="list-group-item active">
+            <i class="fas fa-list me-1"></i>
+            Tasks 
+            <span class="badge rounded-pill bg-danger ms-2">0</span>
+            <a href="#" class="fas fa-trash text-danger float-end" style="position: relative; top: 5px"></a>
+        </li>
+    </ul>
+
+    <!-- Done Tasks bar -->
+    <ul id="done" class="list-group mb-3 mx-auto" style="max-width: 380px;">
+        <li class="list-group-item bg-secondary text-light">
+            <i class="fas fa-check-double me-1"></i>
+            Done Tasks 
+            <span class="badge rounded-pill bg-danger ms-2">0</span>
+            <a href="#" class="fas fa-trash text-danger float-end" style="position: relative; top: 5px"></a>
+        </li>
+    </ul>
+
+    <script>
+
+        let data = getData();
+        data.map(item => createItem(item))
+
+        /* Start - create contents-li for each input, then clear input */
+        document.querySelector("button").onclick = function() {
+            let content = document.querySelector("input").value;
+
+            createItem(content);
+
+            document.querySelector("input").value = "";
+            document.querySelector("input").focus();
+
+            let data = getData();
+            data.push(content);
+            saveData();
+
+            count();
+        };
+
+        document.querySelector("input").onkeydown = function(e) {
+            if (e.which === 13) {
+                document.querySelector("button").onclick();
+                count();
+            };
+        };
+        /* End - create contents-li for each input, then clear input */
+
+        /* Start - Clear all tasks */
+        // document.querySelector("#clear").onclick = function() {
+        //     document.querySelector("#done").innerHTML = ""
+        // }
+        /* End - Clear all tasks */
+
+
+        /* Start - Clear input text while clicking X */
+        let clearInput = document.querySelector("div div .input-group-text");
+        clearInput.onclick = function () {
+            document.querySelector("input").value = "";
+            document.querySelector("input").focus();
+        };
+        /* End - Clear input text while clicking X */
+
+
+        /* Start - Delete all tasks-li by clicking trash icon in Tasks-li*/
+        document.querySelector("#list a").onclick = function() {
+            document.querySelectorAll(".list-group li:nth-child(n+2)").forEach(el => el.remove());
+            count();
+            countDone();
+        };
+        /* End - Delete all tasks by clicking trash icon in Tasks-li*/
+
+
+        /* Start - Delete all Done-Tasks-li by clicking trash icon in Done-Tasks-li */
+        document.querySelector("#done a").onclick = function() {
+            document.querySelectorAll("#done li:nth-child(n+2)").forEach(el => el.remove());
+            countDone();
+        };
+        /* End - Delete all Done-Tasks-li by clicking trash icon in Done-Tasks-li */
+
+
+        /* Start - count the number of tasks */
+        function count() {
+            let counter = document.querySelector("#list .badge");
+            counter.textContent = document.querySelectorAll("#list li").length - 1;
+        };
+
+        function countDone() {
+            let counter = document.querySelector("#done .badge");
+            counter.textContent = document.querySelectorAll("#done li").length - 1;
+        };
+        /* End - count the number of tasks */
+
+        /* Start - create items */
+        function createItem(content) {
+            let li = document.createElement("li");
+            li.classList.add("list-group-item" , "li:nth-child(n+2):hover");
+
+            let check = document.createElement("a");
+            check.setAttribute("href" , "#");
+            check.classList.add("fas", "fa-check", "me-3", "text-decoration-none");
+
+            let div = document.createElement("div");
+            div.append(check , content);
+            div.classList.add("cursor-none");
+            div.onclick = function() {
+                div.parentElement.classList.add("text-muted");
+                restore.classList.remove("d-none");
+                document.querySelector("#done").appendChild(div.parentElement);
+                check.classList.add("d-none");
+
+                count();
+                countDone();       
+            };
+
+            li.classList.add("d-flex", "justify-content-between");
+            div.classList.add("flex-grow-1");
+
+            let restore = document.createElement("a");
+            restore.setAttribute("href", "#");
+            restore.classList.add("fas", "fa-rotate-right", "me-4", "text-decoration-none", "d-none");
+            restore.onclick = function() {
+                check.classList.remove("d-none");
+                divForRestoreAndDel.parentElement.classList.remove("text-muted");
+                document.querySelector("#list").appendChild(divForRestoreAndDel.parentElement);
+                restore.classList.add("d-none");
+
+                count();
+                countDone();
+            };
+            
+            let del = document.createElement("a");
+            del.setAttribute("href" , "#");
+            del.classList.add("fas", "fa-trash", "text-danger");
+            del.onclick = function () {
+                divForRestoreAndDel.parentElement.remove();
+                count();
+                countDone();
+            };
+
+            let divForRestoreAndDel = document.createElement("div");
+            divForRestoreAndDel.append(restore, del);
+
+            li.append(div , divForRestoreAndDel);
+
+            document.querySelector("#list").appendChild(li);
+       };
+       /* End - create items */
+
+       /* Start - get data and save data*/
+       function getData() {
+            return JSON.parse(localStorage.getItem("data")) || [];
+       }
+
+       function saveData(data) {
+            localStorage.setItem("data" , JSON.stringify(data));
+       }
+       /* End - get data and save data*/
+    </script>
+</body>
+</html>

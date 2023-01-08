@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        let users = [
+            {name: "Alice", age: 22, gender: 'f'},
+            {name: "John", age: 19, gender: 'm'},
+            {name: "Michael", age: 25, gender: 'm'},
+            {name: "Jim", age: 20, gender: 'f'}
+        ];
+
+        users.map(user => user.name)
+        users.filter(user => user.age>20);
+        users.filter(user => user.gender === "f").map(user => user.name)
+
+        // Object and class
+
+        class Animal {
+            constructor(name) {
+                this.name = name
+            }
+            hello() {
+                console.log(`Hello ${this.name}`)
+            }
+        }
+
+        class Dog extends Animal {
+            bark() {
+                console.log("Woof...")
+            }
+        }
+
+        let bobby = new Dog("bobby");
+        bobby.hello()
+
+    </script>
+</body>
+</html>

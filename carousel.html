@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+
+        body {
+            background: rgb(27, 13, 67);
+        }
+
+        .wrap {
+            width: 1000px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .wrap button {
+            background-color: rgba(52, 61, 223, 0.4);
+            color: rgb(14, 17, 16);
+            width: 40px;
+            height: 40px;
+            margin: 20px 0;
+            border-radius: 30px;
+            position: absolute;
+            top: 40%;
+            border: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .box {
+            width: 1000px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 5em;
+        }
+
+        #box1 {
+            background-color: red;
+        }
+
+        #box2 {
+            background-color: yellow;
+            display: none;
+        }
+
+        #box3 {
+            background-color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <button class="prev">&laquo;</button>
+        <button class="next">&raquo;</button>
+        <div class="box" id="box1">One</div>
+        <div class="box" id="box2">Two</div>
+        <div class="box" id="box3">Three</div>
+
+    </div>
+
+    <!-- start js code -->
+    <script>
+        document.querySelector(".prev").onclick = prev;
+        document.querySelector(".next").onclick = next;
+
+        var box = 1;
+
+        // setInterval(next, 3000);
+
+        function prev() {
+            document.querySelector("#box"+box).style.display = "none";
+            box--;
+            if (box<1) box=3;
+            document.querySelector("#box"+box).style.display = "block";
+        }
+        function next() {
+            document.querySelector("#box"+box).style.display = "none";
+            box++;
+            if (box>3) box=1;
+            document.querySelector("#box"+box).style.display = "block";
+        }
+    </script>
+    <!-- start js code -->
+</body>
+</html>
